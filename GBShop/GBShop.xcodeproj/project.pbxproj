@@ -97,7 +97,6 @@
 		B46CC85A2991F76A00746B9A /* GBShop */ = {
 			isa = PBXGroup;
 			children = (
-				B46CC8692991F76D00746B9A /* Info.plist */,
 				B46CC88B2991FC3500746B9A /* App */,
 				B46CC8902991FD4500746B9A /* Core */,
 				B46CC8922991FD7F00746B9A /* Environments */,
@@ -184,6 +183,7 @@
 		B46CC8922991FD7F00746B9A /* Environments */ = {
 			isa = PBXGroup;
 			children = (
+				B46CC8692991F76D00746B9A /* Info.plist */,
 			);
 			path = Environments;
 			sourceTree = "<group>";
@@ -491,7 +491,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AD4W7X6593;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GBShop/Info.plist;
+				INFOPLIST_FILE = GBShop/Environments/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -518,7 +518,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AD4W7X6593;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GBShop/Info.plist;
+				INFOPLIST_FILE = GBShop/Environments/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
