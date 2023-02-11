@@ -32,6 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
+        
+        auth.register(idUser: 123, username: "Somebody", password: "mypassword", email: "some@some.ru", gender: "m", creditCard: "9872389-2424-234224-234", bio: "This is good! I think I will switch to another language") { response in
+            switch response.result {
+            case .success(let register):
+                print(register)
+            case .failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
         return true
     }
 

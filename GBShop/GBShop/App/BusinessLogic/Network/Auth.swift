@@ -26,6 +26,11 @@ class Auth: AbstractRequestFactory {
 }
 
 extension Auth: AuthRequestFactory {
+    func register(idUser: Int, username: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<RegistrationResult>) -> Void) {
+        let requestModel = Register(baseUrl: baseUrl, id: idUser, name: username, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
+    
     func logout(idUser: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
         let requestModel = Logout(baseUrl: baseUrl, id: idUser)
         self.request(request: requestModel, completionHandler: completionHandler)
@@ -61,7 +66,33 @@ extension Auth {
         let id: Int
         var parameters: Parameters? {
             return [
-                "id": id
+                "id_user": id
+            ]
+        }
+    }
+}
+
+extension Auth {
+    struct Register: RequestRouter {
+        let baseUrl: URL
+        let method: HTTPMethod = .get
+        let path: String = "registerUser.json"
+        let id: Int
+        let name: String
+        let password: String
+        let email: String
+        let gender: String
+        let creditCard: String
+        let bio: String
+        var parameters: Parameters? {
+            return [
+                "id_user": id,
+                "user_name": name,
+                "password": password,
+                "email": email,
+                "gender": gender,
+                "credit_card": creditCard,
+                "bio": bio
             ]
         }
     }
