@@ -28,6 +28,8 @@
 		B46CC8732991F76D00746B9A /* GBShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CC8722991F76D00746B9A /* GBShopTests.swift */; };
 		B46CC87D2991F76D00746B9A /* GBShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CC87C2991F76D00746B9A /* GBShopUITests.swift */; };
 		B46CC87F2991F76D00746B9A /* GBShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46CC87E2991F76D00746B9A /* GBShopUITestsLaunchTests.swift */; };
+		B47E4F6E29974CA900EA7FF6 /* ChangeUserDataResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E4F6D29974CA900EA7FF6 /* ChangeUserDataResult.swift */; };
+		B47E4F702997588A00EA7FF6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B47E4F6F2997588A00EA7FF6 /* UserData.swift */; };
 		DDA64CB13488CB2CB5E86108 /* Pods_GBShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94122716C3C81437DE4CF3BD /* Pods_GBShop.framework */; };
 		F0D9825EC272DE31F139C7AE /* Pods_GBShop_GBShopUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ED81A5CCD1D25D9787B70A4 /* Pods_GBShop_GBShopUITests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +82,8 @@
 		B46CC8782991F76D00746B9A /* GBShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GBShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B46CC87C2991F76D00746B9A /* GBShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITests.swift; sourceTree = "<group>"; };
 		B46CC87E2991F76D00746B9A /* GBShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B47E4F6D29974CA900EA7FF6 /* ChangeUserDataResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserDataResult.swift; sourceTree = "<group>"; };
+		B47E4F6F2997588A00EA7FF6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		BD951DC6A68B1F44EFBAC346 /* Pods-GBShopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GBShopTests.debug.xcconfig"; path = "Target Support Files/Pods-GBShopTests/Pods-GBShopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D03E73905E5D332CE5B26081 /* Pods-GBShop-GBShopUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GBShop-GBShopUITests.debug.xcconfig"; path = "Target Support Files/Pods-GBShop-GBShopUITests/Pods-GBShop-GBShopUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D98E053BB30337BBE347008B /* Pods_GBShopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GBShopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,8 +215,10 @@
 			children = (
 				B4328F3D2995EFD9007ECA57 /* LoginResult.swift */,
 				B4328F53299629DD007ECA57 /* LogoutResult.swift */,
+				B47E4F6D29974CA900EA7FF6 /* ChangeUserDataResult.swift */,
 				B4328F5929964EF1007ECA57 /* RegistrationResult.swift */,
 				B4328F3F2995F018007ECA57 /* User.swift */,
+				B47E4F6F2997588A00EA7FF6 /* UserData.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -521,6 +527,7 @@
 				B4328F4A299601E8007ECA57 /* AbstractErrorParser.swift in Sources */,
 				B46CC8602991F76A00746B9A /* ViewController.swift in Sources */,
 				B4328F54299629DD007ECA57 /* LogoutResult.swift in Sources */,
+				B47E4F6E29974CA900EA7FF6 /* ChangeUserDataResult.swift in Sources */,
 				B4328F3E2995EFD9007ECA57 /* LoginResult.swift in Sources */,
 				B4328F5229960628007ECA57 /* RequestFactory.swift in Sources */,
 				B4328F432995FF44007ECA57 /* AuthRequestFactory.swift in Sources */,
@@ -530,6 +537,7 @@
 				B4328F4C29960248007ECA57 /* ErrorParser.swift in Sources */,
 				B4328F452995FF95007ECA57 /* Auth.swift in Sources */,
 				B4328F50299604C6007ECA57 /* RequestRouter.swift in Sources */,
+				B47E4F702997588A00EA7FF6 /* UserData.swift in Sources */,
 				B46CC85C2991F76A00746B9A /* AppDelegate.swift in Sources */,
 				B46CC85E2991F76A00746B9A /* SceneDelegate.swift in Sources */,
 				B4328F47299600BA007ECA57 /* DataRequest.swift in Sources */,

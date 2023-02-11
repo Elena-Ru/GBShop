@@ -26,6 +26,11 @@ class Auth: AbstractRequestFactory {
 }
 
 extension Auth: AuthRequestFactory {
+    func changeUserData(idUser: Int, username: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<ChangeUserDataResult>) -> Void) {
+        let requestModel = ChangeData(baseUrl: baseUrl, id: idUser, name: username, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
+    
     func register(idUser: Int, username: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<RegistrationResult>) -> Void) {
         let requestModel = Register(baseUrl: baseUrl, id: idUser, name: username, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
         self.request(request: requestModel, completionHandler: completionHandler)
@@ -73,17 +78,46 @@ extension Auth {
 }
 
 extension Auth {
-    struct Register: RequestRouter {
-        let baseUrl: URL
-        let method: HTTPMethod = .get
-        let path: String = "registerUser.json"
-        let id: Int
-        let name: String
-        let password: String
-        let email: String
-        let gender: String
-        let creditCard: String
-        let bio: String
+    struct Register: RequestRouter, UserData {
+    
+        var baseUrl: URL
+        var method: HTTPMethod = .get
+        var path: String = "registerUser.json"
+        var id: Int
+        var name: String
+        var password: String
+        var email: String
+        var gender: String
+        var creditCard: String
+        var bio: String
+        var parameters: Parameters? {
+            return [
+                "id_user": id,
+                "user_name": name,
+                "password": password,
+                "email": email,
+                "gender": gender,
+                "credit_card": creditCard,
+                "bio": bio
+            ]
+        }
+    }
+}
+
+
+extension Auth {
+    struct ChangeData: RequestRouter, UserData {
+    
+        var baseUrl: URL
+        var method: HTTPMethod = .get
+        var path: String = "changeUserData.json"
+        var id: Int
+        var name: String
+        var password: String
+        var email: String
+        var gender: String
+        var creditCard: String
+        var bio: String
         var parameters: Parameters? {
             return [
                 "id_user": id,
