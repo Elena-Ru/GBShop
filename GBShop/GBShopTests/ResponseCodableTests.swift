@@ -296,8 +296,8 @@ final class ResponseCodableTests: XCTestCase {
         XCTAssertNotEqual(0, logoutResult)
     }
     
-    //MARK: GOOD ITEM TESTS
-    func test_Goods_getItemById_ShouldReturnItem() {
+    //MARK: PRODUCT TESTS
+    func test_Products_getItemById_ShouldReturnItem() {
         let goods = requestFactory.makeGoodsRequestFactory()
         let id = 123
         var itemResult = 3
@@ -313,6 +313,26 @@ final class ResponseCodableTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 10.0)
         XCTAssertEqual(1, itemResult)
+        XCTAssertNotEqual(0, itemResult)
+    }
+    
+    func test_Products_getCatalogData_ShouldReturnArray() {
+        let products = requestFactory.makeGoodsRequestFactory()
+        let pageNumber = 1
+        let idCategory = 1
+        
+        var itemResult = 0
+        
+        products.getCatalogData(pageNumber: pageNumber, idCategory: idCategory) { response in
+            switch response.result {
+            case .success(let item):
+                itemResult = item[0].id
+            case .failure:
+                XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
         XCTAssertNotEqual(0, itemResult)
     }
 }
