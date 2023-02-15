@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        auth.logout(idUser: 123) { response in
+        auth.logout(idUser: 2) { response in
             switch response.result {
             case .success(let logout):
                 print(logout)

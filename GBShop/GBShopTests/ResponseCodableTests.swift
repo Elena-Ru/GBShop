@@ -57,6 +57,8 @@ final class ResponseCodableTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
+    //MARK: LOGIN TESTS
+    
     func test_Auth_login_shouldLogin() {
         //Given
         let auth = requestFactory.makeAuthRequestFatory()
@@ -114,6 +116,24 @@ final class ResponseCodableTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 10.0)
     }
+    //MARK: LOGOUT TESTS
+    func test_Auth_logout_ShouldLogout() {
+        let auth = requestFactory.makeAuthRequestFatory()
+        let id = 123
+        var logoutResult = 88
         
-        
+        auth.logout(idUser: id) { response in
+            switch response.result {
+            case .success(let logout):
+                logoutResult = logout.result
+            case .failure:
+                XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+        XCTAssertEqual(1, logoutResult)
+        XCTAssertNotEqual(0, logoutResult)
+    }
+    
 }
