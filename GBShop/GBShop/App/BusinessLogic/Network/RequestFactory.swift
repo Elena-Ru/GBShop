@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class RequestFactory {
-
     lazy var commonSession: Session = {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
