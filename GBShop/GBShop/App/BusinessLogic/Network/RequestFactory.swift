@@ -23,7 +23,7 @@ class RequestFactory {
         return ErrorParser()
     }
     
-    func makeAuthRequestFatory() -> AuthRequestFactory {
+    func makeAuthRequestFactory() -> AuthRequestFactory {
         let errorParser = makeErrorParser()
         return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
