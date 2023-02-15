@@ -295,4 +295,24 @@ final class ResponseCodableTests: XCTestCase {
         XCTAssertEqual(1, logoutResult)
         XCTAssertNotEqual(0, logoutResult)
     }
+    
+    //MARK: GOOD ITEM TESTS
+    func test_Goods_getItemById_ShouldReturnItem() {
+        let goods = requestFactory.makeGoodsRequestFactory()
+        let id = 123
+        var itemResult = 3
+        
+        goods.getGoodById(id: id) { response in
+            switch response.result {
+            case .success(let item):
+                itemResult = item.result
+            case .failure:
+                XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+        XCTAssertEqual(1, itemResult)
+        XCTAssertNotEqual(0, itemResult)
+    }
 }

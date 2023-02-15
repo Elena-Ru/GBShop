@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let auth = requestFactory.makeAuthRequestFactory()
+        let goods = requestFactory.makeGoodsRequestFactory()
+        
         auth.login(userName: "", password: "mypassword") { response in
             switch response.result {
             case .success(let login):
@@ -48,6 +50,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case .success(let changeUserData):
                 print(changeUserData)
             case .failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
+        
+        goods.getGoodById(id: 12) { response in
+            switch response.result {
+            case .success(let item):
+                print(item)
+            case .failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
+        
+        //ERROR
+        goods.getCatalogData(pageNumber: 1, idCategory: 1) { response in
+            switch response.result {
+            case .success(let catalog):
+                print(catalog)
+            case.failure(let error):
                 print(String(describing: error))
                 print(error.localizedDescription)
             }
