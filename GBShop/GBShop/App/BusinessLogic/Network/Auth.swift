@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class Auth: AbstractRequestFactory {
-    
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
@@ -79,7 +78,6 @@ extension Auth {
 
 extension Auth {
     struct Register: RequestRouter, UserData {
-    
         var baseUrl: URL
         var method: HTTPMethod = .get
         var path: String = "registerUser.json"
@@ -107,7 +105,6 @@ extension Auth {
 
 extension Auth {
     struct ChangeData: RequestRouter, UserData {
-    
         var baseUrl: URL
         var method: HTTPMethod = .get
         var path: String = "changeUserData.json"

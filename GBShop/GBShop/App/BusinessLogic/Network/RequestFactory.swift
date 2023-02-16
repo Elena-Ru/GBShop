@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class RequestFactory {
-
     lazy var commonSession: Session = {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
@@ -24,8 +23,13 @@ class RequestFactory {
         return ErrorParser()
     }
     
-    func makeAuthRequestFatory() -> AuthRequestFactory {
+    func makeAuthRequestFactory() -> AuthRequestFactory {
         let errorParser = makeErrorParser()
         return Auth(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
+    }
+    
+    func makeGoodsRequestFactory() -> GoodsRequestFactory {
+        let errorParser = makeErrorParser()
+        return Products(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue)
     }
 }
