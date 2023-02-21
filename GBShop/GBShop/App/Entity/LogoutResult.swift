@@ -8,5 +8,8 @@
 import Foundation
 
 struct LogoutResult: Codable {
-    let result: Int
+    var result: Int
 }
+
+
+

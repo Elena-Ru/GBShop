@@ -8,6 +8,6 @@
 import Foundation
 
 struct LoginResult: Codable {
-    let result: Int
-    let user: User
+    var result: Int
+    var user: User
 }
