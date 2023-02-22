@@ -335,4 +335,24 @@ final class ResponseCodableTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
         XCTAssertNotEqual(0, itemResult)
     }
+    
+    //MARK: REVIEWS TESTS
+    func test_Review_removeReview_ShouldRemoveReview() {
+        let reviews = requestFactory.makeReviewsRequestFactory()
+        let id = 123
+        var itemResult = 3
+        
+        reviews.removeReview(idComment: id) { response in
+            switch response.result {
+            case .success(let item):
+                itemResult = item.result
+            case .failure:
+                XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+        XCTAssertEqual(1, itemResult)
+        XCTAssertNotEqual(0, itemResult)
+    }
 }
