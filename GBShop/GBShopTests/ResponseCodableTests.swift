@@ -45,7 +45,7 @@ final class ResponseCodableTests: XCTestCase {
         requestFactory = nil
     }
     
-    func testShouldDownloadAndParse() {
+    func test_shouldDownloadAndParse() {
         AF.request("https://jsonplaceholder.typicode.com/posts/1").responseCodable(errorParser: errorParser) { [weak self] (response: DataResponse<PostStub, AFError>) in
             switch response.result {
             case .success(_): break
@@ -343,6 +343,26 @@ final class ResponseCodableTests: XCTestCase {
         var itemResult = 3
         
         reviews.removeReview(idComment: id) { response in
+            switch response.result {
+            case .success(let item):
+                itemResult = item.result
+            case .failure:
+                XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+        XCTAssertEqual(1, itemResult)
+        XCTAssertNotEqual(0, itemResult)
+    }
+    
+    func test_Review_addReview_ShouldAddReview() {
+        let reviews = requestFactory.makeReviewsRequestFactory()
+        let id = 123
+        let text = "Good value of money"
+        var itemResult = 3
+        
+        reviews.addReview(idUser: id, text: text) { response in
             switch response.result {
             case .success(let item):
                 itemResult = item.result

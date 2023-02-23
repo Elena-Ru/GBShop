@@ -85,6 +85,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
+        
+        reviews.addReview(idUser: 123, text: "Good value of money") { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case.failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
         return true
     }
     
