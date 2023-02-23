@@ -25,6 +25,11 @@ class Reviews: AbstractRequestFactory {
 }
 
 extension Reviews: ReviewRequestFactory {
+    func getListReview(page: Int, idProduct: Int, completionHandler: @escaping (Alamofire.AFDataResponse<GetListReviewResult>) -> Void) {
+        let requestModel = GetListReview(baseUrl: baseUrl, id: idProduct, page: page)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
+    
     func addReview(idUser: Int?, text: String, completionHandler: @escaping (Alamofire.AFDataResponse<AddReviewResult>) -> Void) {
         let requestModel = AddReview(baseUrl: baseUrl, id: idUser, text: text)
         self.request(request: requestModel, completionHandler: completionHandler)
@@ -62,6 +67,22 @@ extension Reviews {
             return [
                 "id_user": id ?? 0,
                 "text": text
+            ]
+        }
+    }
+}
+
+extension Reviews {
+    struct GetListReview: RequestRouter {
+        let baseUrl: URL
+        let method: HTTPMethod = .get
+        let path: String = "getListReview"
+        let id: Int
+        let page: Int
+        var parameters: Parameters? {
+            return [
+                "page_number": page,
+                "id_product": id
             ]
         }
     }

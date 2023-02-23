@@ -95,6 +95,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
+        
+        reviews.getListReview(page: 1, idProduct: 23) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case.failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
         return true
     }
     
