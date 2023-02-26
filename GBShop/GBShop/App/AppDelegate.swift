@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let auth = requestFactory.makeAuthRequestFactory()
         let goods = requestFactory.makeGoodsRequestFactory()
+        let reviews = requestFactory.makeReviewsRequestFactory()
         
         auth.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
@@ -69,6 +70,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch response.result {
             case .success(let catalog):
                 print(catalog)
+            case.failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
+        
+        reviews.removeReview(idComment: 2) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case.failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
+        
+        reviews.addReview(idUser: 123, text: "Good value of money") { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case.failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
+        
+        reviews.getListReview(page: 1, idProduct: 23) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
             case.failure(let error):
                 print(String(describing: error))
                 print(error.localizedDescription)
