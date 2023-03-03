@@ -25,21 +25,15 @@ class Basket: AbstractRequestFactory {
 }
 
 extension Basket: BasketRequestFactory {
+    func remove(id: Int, completionHandler: @escaping (AFDataResponse<RemoveFromBasketResult>) -> Void) {
+        let requestModel = RemoveFromBasket(baseUrl: baseUrl, id: id)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
     
     func add(id: Int, qty: Int, completionHandler: @escaping (AFDataResponse<AddToBasketResult>) -> Void) {
         let requestModel = AddToBasket(baseUrl: baseUrl, id: id, qty: qty)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
-    
-//    func getGoodById(id: Int, completionHandler: @escaping (AFDataResponse<ProductByIdResult>) -> Void) {
-//        let requestModel = GetProduct(baseUrl: baseUrl, id: id)
-//        self.request(request: requestModel, completionHandler: completionHandler)
-//    }
-//
-//    func getCatalogData(pageNumber: Int, idCategory: Int, completionHandler: @escaping (AFDataResponse<[CatalogDataResult]>) -> Void) {
-//        let requestModel = CatalogData(baseUrl: baseUrl, pageNumber: pageNumber, idCategory: idCategory)
-//        self.request(request: requestModel, completionHandler: completionHandler)
-//    }
 }
 
 extension Basket {
@@ -58,16 +52,16 @@ extension Basket {
     }
 }
 
-//extension Products {
-//    struct GetProduct: RequestRouter {
-//        let baseUrl: URL
-//        let method: HTTPMethod = .get
-//        let path: String = "getGoodById"
-//        let id: Int
-//        var parameters: Parameters? {
-//            return [
-//                "id_product": id
-//            ]
-//        }
-//    }
-//}
+extension Basket {
+    struct RemoveFromBasket: RequestRouter {
+        let baseUrl: URL
+        let method: HTTPMethod = .get
+        let path: String = "removeFromBasket"
+        let id: Int
+        var parameters: Parameters? {
+            return [
+                "id_product": id,
+            ]
+        }
+    }
+}

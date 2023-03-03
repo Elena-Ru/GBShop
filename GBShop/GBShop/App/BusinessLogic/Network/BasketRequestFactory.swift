@@ -10,4 +10,6 @@ import Alamofire
 
 protocol BasketRequestFactory {
     func add(id: Int, qty: Int, completionHandler: @escaping (AFDataResponse<AddToBasketResult>) -> Void)
+    
+    func remove(id: Int, completionHandler: @escaping(AFDataResponse<RemoveFromBasketResult>) -> Void)
 }

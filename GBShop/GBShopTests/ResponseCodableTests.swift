@@ -375,8 +375,7 @@ final class ResponseCodableTests: XCTestCase {
         XCTAssertNotEqual(0, itemResult)
     }
     
-    //MARK: BASKET TESTS
-    func test_Review_getListReview_ShouldReturnArrayOfReview() {
+    func testReviewGetListReviewShouldReturnArrayOfReview() {
         let reviews = requestFactory.makeReviewsRequestFactory()
         let id = 123
         let page = 1
@@ -395,6 +394,7 @@ final class ResponseCodableTests: XCTestCase {
         XCTAssertNotEqual(0, itemResult)
     }
     
+    //MARK: BASKET TESTS
     func testBasketAddShouldReturn1() {
         let basket = requestFactory.makeBasketRequestFactory()
         let id = 123
@@ -402,6 +402,25 @@ final class ResponseCodableTests: XCTestCase {
         var itemResult = 3
         
         basket.add(id: id, qty: qty) { response in
+            switch response.result {
+            case .success(let item):
+                itemResult = item.result
+            case .failure:
+                XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+        XCTAssertEqual(1, itemResult)
+        XCTAssertNotEqual(0, itemResult)
+    }
+    
+    func testBasketRemoveShouldReturn1() {
+        let basket = requestFactory.makeBasketRequestFactory()
+        let id = 123
+        var itemResult = 3
+        
+        basket.remove(id: 233) { response in
             switch response.result {
             case .success(let item):
                 itemResult = item.result
