@@ -25,6 +25,11 @@ class Basket: AbstractRequestFactory {
 }
 
 extension Basket: BasketRequestFactory {
+    func payBasket(totalCost: Int, completionHandler: @escaping (AFDataResponse<PayBasketResult>) -> Void) {
+        let requestModel = PayBasket(baseUrl: baseUrl, totalCost: totalCost)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
+    
     func remove(id: Int, completionHandler: @escaping (AFDataResponse<RemoveFromBasketResult>) -> Void) {
         let requestModel = RemoveFromBasket(baseUrl: baseUrl, id: id)
         self.request(request: requestModel, completionHandler: completionHandler)
@@ -61,6 +66,20 @@ extension Basket {
         var parameters: Parameters? {
             return [
                 "id_product": id,
+            ]
+        }
+    }
+}
+
+extension Basket {
+    struct PayBasket: RequestRouter {
+        let baseUrl: URL
+        let method: HTTPMethod = .get
+        let path: String = "pay"
+        let totalCost: Int
+        var parameters: Parameters? {
+            return [
+                "cost_total": totalCost,
             ]
         }
     }

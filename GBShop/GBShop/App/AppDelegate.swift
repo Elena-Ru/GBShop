@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let goods = requestFactory.makeGoodsRequestFactory()
         let reviews = requestFactory.makeReviewsRequestFactory()
         let basket = requestFactory.makeBasketRequestFactory()
+        var products = [BasketProduct]()
         
         auth.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
@@ -118,6 +119,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         basket.remove(id: 1245) { response in
+            switch response.result {
+            case .success(let result):
+                products = []
+                print(result)
+            case.failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
+        
+        basket.payBasket(totalCost: 2323) { response in
             switch response.result {
             case .success(let result):
                 print(result)

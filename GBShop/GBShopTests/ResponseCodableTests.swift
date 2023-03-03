@@ -319,7 +319,6 @@ final class ResponseCodableTests: XCTestCase {
         let products = requestFactory.makeGoodsRequestFactory()
         let pageNumber = 1
         let idCategory = 1
-        
         var itemResult = 0
         
         products.getCatalogData(pageNumber: pageNumber, idCategory: idCategory) { response in
@@ -421,6 +420,25 @@ final class ResponseCodableTests: XCTestCase {
         var itemResult = 3
         
         basket.remove(id: 233) { response in
+            switch response.result {
+            case .success(let item):
+                itemResult = item.result
+            case .failure:
+                XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+        XCTAssertEqual(1, itemResult)
+        XCTAssertNotEqual(0, itemResult)
+    }
+    
+    func testBasketPayBasketShouldReturn1() {
+        let basket = requestFactory.makeBasketRequestFactory()
+        let totalCost = 123
+        var itemResult = 3
+        
+        basket.payBasket(totalCost: totalCost) { response in
             switch response.result {
             case .success(let item):
                 itemResult = item.result
