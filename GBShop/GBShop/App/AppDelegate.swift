@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let auth = requestFactory.makeAuthRequestFactory()
         let goods = requestFactory.makeGoodsRequestFactory()
         let reviews = requestFactory.makeReviewsRequestFactory()
+        let basket = requestFactory.makeBasketRequestFactory()
         
         auth.login(userName: "Somebody", password: "mypassword") { response in
             switch response.result {
@@ -97,6 +98,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         reviews.getListReview(page: 1, idProduct: 23) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case.failure(let error):
+                print(String(describing: error))
+                print(error.localizedDescription)
+            }
+        }
+        
+        basket.add(id: 245, qty: 4) { response in
             switch response.result {
             case .success(let result):
                 print(result)

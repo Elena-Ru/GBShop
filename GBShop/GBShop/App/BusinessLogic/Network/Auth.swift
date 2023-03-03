@@ -102,7 +102,6 @@ extension Auth {
     }
 }
 
-
 extension Auth {
     struct ChangeData: RequestRouter, UserData {
         var baseUrl: URL

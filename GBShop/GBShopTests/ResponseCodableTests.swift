@@ -45,7 +45,7 @@ final class ResponseCodableTests: XCTestCase {
         requestFactory = nil
     }
     
-    func test_shouldDownloadAndParse() {
+    func testShouldDownloadAndParse() {
         AF.request("https://jsonplaceholder.typicode.com/posts/1").responseCodable(errorParser: errorParser) { [weak self] (response: DataResponse<PostStub, AFError>) in
             switch response.result {
             case .success(_): break
@@ -58,13 +58,12 @@ final class ResponseCodableTests: XCTestCase {
     }
     
     //MARK: LOGIN TESTS
-    func test_Auth_login_shouldLogin() {
-        //Given
+    func testAuthLoginShouldLogin() {
         let auth = requestFactory.makeAuthRequestFactory()
         let name = "Somebody"
         let password = "mypassword"
         var loginR : Int = 88
-        //When
+        
         auth.login(userName: name, password: password) { response in
             switch response.result {
             case .success(let login):
@@ -74,13 +73,13 @@ final class ResponseCodableTests: XCTestCase {
             }
             self.expectation.fulfill()
         }
+        
         wait(for: [expectation], timeout: 10.0)
-        //Then
         XCTAssertEqual(1, loginR)
         XCTAssertNotEqual(0, loginR)
     }
     
-    func test_Auth_login_shouldNotLoginWithEmptyName() {
+    func testAuthLoginShouldNotLoginWithEmptyName() {
         let auth = requestFactory.makeAuthRequestFactory()
         let name = ""
         let password = "mypassword"
@@ -97,7 +96,7 @@ final class ResponseCodableTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func test_Auth_login_ShouldNotLoginWithEmptyPassword() {
+    func testAuthLoginShouldNotLoginWithEmptyPassword() {
         let auth = requestFactory.makeAuthRequestFactory()
         let name = "Name"
         let password = ""
@@ -115,7 +114,7 @@ final class ResponseCodableTests: XCTestCase {
     }
     
     //MARK: LOGOUT TESTS
-    func test_Auth_logout_ShouldLogout() {
+    func testAuthLogoutShouldLogout() {
         let auth = requestFactory.makeAuthRequestFactory()
         let id = 123
         var logoutResult = 88
@@ -135,7 +134,7 @@ final class ResponseCodableTests: XCTestCase {
     }
     
     //MARK: REGISTER TESTS
-    func test_Auth_register_ShouldRegister() {
+    func testAuthRegisterShouldRegister() {
         let auth = requestFactory.makeAuthRequestFactory()
         let id = 123
         let username = "Somebody"
@@ -160,7 +159,7 @@ final class ResponseCodableTests: XCTestCase {
         XCTAssertNotEqual(0, logoutResult)
     }
     
-    func test_Auth_register_ShouldNotRegisterWithEmptyName() {
+    func testAuthRegisterShouldNotRegisterWithEmptyName() {
         let auth = requestFactory.makeAuthRequestFactory()
         let id = 123
         let username = ""
@@ -182,7 +181,7 @@ final class ResponseCodableTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func test_Auth_register_ShouldNotRegisterWithEmptyPassword() {
+    func testAuthRegisterShouldNotRegisterWithEmptyPassword() {
         let auth = requestFactory.makeAuthRequestFactory()
         let id = 123
         let username = "name"
@@ -204,7 +203,7 @@ final class ResponseCodableTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func test_Auth_register_ShouldNotRegisterWithEmptyEmail() {
+    func testAuthRegisterShouldNotRegisterWithEmptyEmail() {
         let auth = requestFactory.makeAuthRequestFactory()
         let id = 123
         let username = "name"
@@ -226,7 +225,7 @@ final class ResponseCodableTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func test_Auth_register_ShouldNotRegisterWithEmptyGender() {
+    func testAuthRegisterShouldNotRegisterWithEmptyGender() {
         let auth = requestFactory.makeAuthRequestFactory()
         let id = 123
         let username = "name"
@@ -248,7 +247,7 @@ final class ResponseCodableTests: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
     
-    func test_Auth_register_ShouldNotRegisterWithEmptyCard() {
+    func testAuthRegisterShouldNotRegisterWithEmptyCard() {
         let auth = requestFactory.makeAuthRequestFactory()
         let id = 123
         let username = "name"
@@ -271,7 +270,7 @@ final class ResponseCodableTests: XCTestCase {
     }
     
     //MARK: CHANGE DATA TESTS
-    func test_Auth_register_ShouldChangeData() {
+    func testAuthRegisterShouldChangeData() {
         let auth = requestFactory.makeAuthRequestFactory()
         let id = 123
         let username = "Somebody"
@@ -297,7 +296,7 @@ final class ResponseCodableTests: XCTestCase {
     }
     
     //MARK: PRODUCT TESTS
-    func test_Products_getItemById_ShouldReturnItem() {
+    func testProductsGetItemByIdShouldReturnItem() {
         let goods = requestFactory.makeGoodsRequestFactory()
         let id = 123
         var itemResult = 3
@@ -316,7 +315,7 @@ final class ResponseCodableTests: XCTestCase {
         XCTAssertNotEqual(0, itemResult)
     }
     
-    func test_Products_getCatalogData_ShouldReturnArray() {
+    func testProductsGetCatalogDataShouldReturnArray() {
         let products = requestFactory.makeGoodsRequestFactory()
         let pageNumber = 1
         let idCategory = 1
@@ -337,7 +336,7 @@ final class ResponseCodableTests: XCTestCase {
     }
     
     //MARK: REVIEWS TESTS
-    func test_Review_removeReview_ShouldRemoveReview() {
+    func testReviewRemoveReviewShouldRemoveReview() {
         let reviews = requestFactory.makeReviewsRequestFactory()
         let id = 123
         var itemResult = 3
@@ -356,7 +355,7 @@ final class ResponseCodableTests: XCTestCase {
         XCTAssertNotEqual(0, itemResult)
     }
     
-    func test_Review_addReview_ShouldAddReview() {
+    func testReviewAddReviewShouldAddReview() {
         let reviews = requestFactory.makeReviewsRequestFactory()
         let id = 123
         let text = "Good value of money"
@@ -376,6 +375,7 @@ final class ResponseCodableTests: XCTestCase {
         XCTAssertNotEqual(0, itemResult)
     }
     
+    //MARK: BASKET TESTS
     func test_Review_getListReview_ShouldReturnArrayOfReview() {
         let reviews = requestFactory.makeReviewsRequestFactory()
         let id = 123
@@ -392,6 +392,26 @@ final class ResponseCodableTests: XCTestCase {
             self.expectation.fulfill()
         }
         wait(for: [expectation], timeout: 10.0)
+        XCTAssertNotEqual(0, itemResult)
+    }
+    
+    func testBasketAddShouldReturn1() {
+        let basket = requestFactory.makeBasketRequestFactory()
+        let id = 123
+        let qty = 5
+        var itemResult = 3
+        
+        basket.add(id: id, qty: qty) { response in
+            switch response.result {
+            case .success(let item):
+                itemResult = item.result
+            case .failure:
+                XCTFail()
+            }
+            self.expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 10.0)
+        XCTAssertEqual(1, itemResult)
         XCTAssertNotEqual(0, itemResult)
     }
 }
