@@ -419,7 +419,7 @@ final class ResponseCodableTests: XCTestCase {
         let id = 123
         var itemResult = 3
         
-        basket.remove(id: 233) { response in
+        basket.remove(id: id) { response in
             switch response.result {
             case .success(let item):
                 itemResult = item.result
