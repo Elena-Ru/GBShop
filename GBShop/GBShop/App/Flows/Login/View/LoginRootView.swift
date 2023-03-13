@@ -34,22 +34,7 @@ class LoginRootView: UIView {
         return textField
     }()
     
-    let loginButton: UIButton = {
-        let button = UIButton(type: .roundedRect)
-        button.setTitle("LOGIN", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
-        button.titleLabel?.tintColor = .white
-        button.layer.cornerRadius = 25
-        button.layer.borderColor = UIColor.lightGray.cgColor
-        button.layer.backgroundColor = UIColor.brandDarkPurple.cgColor
-        button.layer.borderWidth = 2
-        button.layer.shadowRadius = 4
-        button.layer.masksToBounds = false
-        button.clipsToBounds = true
-        button.layer.shadowPath = UIBezierPath(rect: button.bounds).cgPath
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    let loginButton = PurpleRoundedButton(title: "LOGIN")
     
     let signUpLabel: UILabel = {
         let label = UILabel()
@@ -118,7 +103,7 @@ class LoginRootView: UIView {
         textFieldStack.addSubview(loginTextFieldView)
         contentView.addSubview(textFieldStack)
         contentView.addSubview(loginButton)
-        
+
         let signUpStack = UIStackView(arrangedSubviews: [signUpLabel, singUpButton])
         signUpStack.translatesAutoresizingMaskIntoConstraints = false
         signUpStack.distribution = .fillEqually
@@ -141,21 +126,11 @@ class LoginRootView: UIView {
             textFieldStack.widthAnchor.constraint(equalToConstant: 250),
             textFieldStack.heightAnchor.constraint(equalToConstant: 100),
             
-            loginTextFieldView.topAnchor.constraint(equalTo: textFieldStack.topAnchor),
-            loginTextFieldView.heightAnchor.constraint(equalToConstant: 38),
-            loginTextFieldView.leadingAnchor.constraint(equalTo: textFieldStack.leadingAnchor),
-            loginTextFieldView.trailingAnchor.constraint(equalTo: textFieldStack.trailingAnchor),
-            
-            passwordTextFieldView.bottomAnchor.constraint(equalTo: textFieldStack.bottomAnchor),
-            passwordTextFieldView.heightAnchor.constraint(equalToConstant: 38),
-            passwordTextFieldView.leadingAnchor.constraint(equalTo: textFieldStack.leadingAnchor),
-            passwordTextFieldView.trailingAnchor.constraint(equalTo: textFieldStack.trailingAnchor),
-            
             loginButton.topAnchor.constraint(equalTo: textFieldStack.bottomAnchor, constant: 30),
             loginButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 50),
             loginButton.widthAnchor.constraint(equalToConstant: 100),
-            
+
             signUpStack.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20),
             signUpStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             signUpStack.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.7),
@@ -174,7 +149,7 @@ class LoginRootView: UIView {
     func animateTextFieldAppearing() {
         loginTextFieldView.transform = CGAffineTransform(translationX: -300, y: -30)
         self.layoutIfNeeded()
-        let originalCenter = loginTextFieldView.center
+        _ = loginTextFieldView.center
         UIView.animateKeyframes(withDuration: 1, delay: 0,options: []) {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
                 self.loginTextFieldView.transform = CGAffineTransform(translationX: 0, y: -60)
@@ -190,7 +165,7 @@ class LoginRootView: UIView {
     func animatePasswordTextFieldAppearing() {
         passwordTextFieldView.transform = CGAffineTransform(translationX: -300, y: -30)
         self.layoutIfNeeded()
-        let originalCenter = passwordTextFieldView.center
+        _ = passwordTextFieldView.center
         UIView.animateKeyframes(withDuration: 1, delay: 0,options: []) {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
                 self.passwordTextFieldView.transform = CGAffineTransform(translationX: 0, y: -60)

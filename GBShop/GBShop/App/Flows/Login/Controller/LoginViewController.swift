@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     private var rootView = LoginRootView()
     let auth = RequestFactory().makeAuthRequestFactory()
     
-    //MARK: Objc functions
+    //MARK: Objc methods
     @objc func keyboardWasShown(notification: Notification) {
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -56,6 +56,13 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @objc func signUp() {
+        let vc = RegisterViewController()
+        let registerNavigationController = UINavigationController(rootViewController: vc)
+        registerNavigationController.modalPresentationStyle = .automatic
+        present(registerNavigationController, animated: true)
+    }
+    
     override func loadView() {
         super.loadView()
         view = rootView
@@ -70,6 +77,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         rootView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        rootView.singUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,7 +95,5 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
-    
 }
 
