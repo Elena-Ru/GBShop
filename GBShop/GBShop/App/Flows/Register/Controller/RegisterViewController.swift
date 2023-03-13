@@ -51,6 +51,9 @@ class RegisterViewController: UIViewController {
             return
         }
         let id = parseId(idString: idString)
+        
+        saveUserData(name: name, email: email, password: password, creditCard: creditCard, bio: bio, id: id, gender: gender)
+        
         auth.register(idUser: id, username: name, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio) { response in
             switch response.result {
             case .success:
@@ -83,6 +86,17 @@ class RegisterViewController: UIViewController {
     //MARK: Private methods
     private func parseId(idString: String) -> Int {
         Int(idString.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) ?? 0
+    }
+    
+    private func saveUserData(name: String, email: String, password: String, creditCard: String, bio: String, id: Int, gender: String) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(name, forKey: "name")
+        userDefaults.set(password, forKey: "password")
+        userDefaults.set(email, forKey: "email")
+        userDefaults.set(creditCard, forKey: "creditCard")
+        userDefaults.set(bio, forKey: "bio")
+        userDefaults.set(id, forKey: "id")
+        userDefaults.set(gender, forKey: "gender")
     }
     
     private func successSignUp(){

@@ -11,6 +11,7 @@
 		B41D3885299B31720092EE13 /* ResponseCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D3884299B31720092EE13 /* ResponseCodableTests.swift */; };
 		B421FAC829BF7052006A6C9F /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAC729BF7052006A6C9F /* MainTabbarController.swift */; };
 		B421FACB29BF71A4006A6C9F /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FACA29BF71A4006A6C9F /* UserViewController.swift */; };
+		B421FACD29BF79FA006A6C9F /* UserRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FACC29BF79FA006A6C9F /* UserRootView.swift */; };
 		B4328F3E2995EFD9007ECA57 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F3D2995EFD9007ECA57 /* LoginResult.swift */; };
 		B4328F402995F018007ECA57 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F3F2995F018007ECA57 /* User.swift */; };
 		B4328F432995FF44007ECA57 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F422995FF44007ECA57 /* AuthRequestFactory.swift */; };
@@ -87,6 +88,7 @@
 		B41D3884299B31720092EE13 /* ResponseCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodableTests.swift; sourceTree = "<group>"; };
 		B421FAC729BF7052006A6C9F /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		B421FACA29BF71A4006A6C9F /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		B421FACC29BF79FA006A6C9F /* UserRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRootView.swift; sourceTree = "<group>"; };
 		B4328F3D2995EFD9007ECA57 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		B4328F3F2995F018007ECA57 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B4328F422995FF44007ECA57 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				B421FACA29BF71A4006A6C9F /* UserViewController.swift */,
+				B421FACC29BF79FA006A6C9F /* UserRootView.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B421FACD29BF79FA006A6C9F /* UserRootView.swift in Sources */,
 				B4CD3E1329B19B7D003130AE /* BasketRequestFactory.swift in Sources */,
 				B4CD3E3129B2F8B8003130AE /* RegisterRootView.swift in Sources */,
 				B4CD3DF429A5FD4B003130AE /* RemoveReviewResult.swift in Sources */,

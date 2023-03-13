@@ -52,7 +52,6 @@ class LoginRootView: UIView {
     }()
     
     let scrollView = UIScrollView()
-    
     let contentView = UIView()
     
     //MARK: Init
