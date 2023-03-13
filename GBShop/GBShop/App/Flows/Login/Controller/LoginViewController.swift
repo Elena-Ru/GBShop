@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     //MARK: Variables
     private var rootView = LoginRootView()
     let auth = RequestFactory().makeAuthRequestFactory()
+    var mainTabbarController = MainTabBarController()
     
     //MARK: Objc methods
     @objc func keyboardWasShown(notification: Notification) {
@@ -48,8 +49,13 @@ class LoginViewController: UIViewController {
         
         auth.login(userName: email, password: password) { response in
             switch response.result {
-            case .success(let login):
-                print(login)
+            case .success:
+                DispatchQueue.main.async {
+                    let mainVController = UINavigationController(rootViewController: self.mainTabbarController)
+                    mainVController.modalPresentationStyle = .fullScreen
+                    self.mainTabbarController.modalTransitionStyle = .flipHorizontal
+                    self.present(mainVController, animated: true)
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }

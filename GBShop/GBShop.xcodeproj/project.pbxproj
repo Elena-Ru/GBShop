@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3636B24F27BED86D2947EC99 /* Pods_GBShopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98E053BB30337BBE347008B /* Pods_GBShopTests.framework */; };
 		B41D3885299B31720092EE13 /* ResponseCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B41D3884299B31720092EE13 /* ResponseCodableTests.swift */; };
+		B421FAC829BF7052006A6C9F /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAC729BF7052006A6C9F /* MainTabbarController.swift */; };
+		B421FACB29BF71A4006A6C9F /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FACA29BF71A4006A6C9F /* UserViewController.swift */; };
 		B4328F3E2995EFD9007ECA57 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F3D2995EFD9007ECA57 /* LoginResult.swift */; };
 		B4328F402995F018007ECA57 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F3F2995F018007ECA57 /* User.swift */; };
 		B4328F432995FF44007ECA57 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F422995FF44007ECA57 /* AuthRequestFactory.swift */; };
@@ -83,6 +85,8 @@
 		852DA3B6B7C961DDCC177B37 /* Pods-GBShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GBShop.debug.xcconfig"; path = "Target Support Files/Pods-GBShop/Pods-GBShop.debug.xcconfig"; sourceTree = "<group>"; };
 		94122716C3C81437DE4CF3BD /* Pods_GBShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GBShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B41D3884299B31720092EE13 /* ResponseCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseCodableTests.swift; sourceTree = "<group>"; };
+		B421FAC729BF7052006A6C9F /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		B421FACA29BF71A4006A6C9F /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		B4328F3D2995EFD9007ECA57 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		B4328F3F2995F018007ECA57 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B4328F422995FF44007ECA57 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
@@ -165,6 +169,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B421FAC629BF700D006A6C9F /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B421FAC729BF7052006A6C9F /* MainTabbarController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		B421FAC929BF7187006A6C9F /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B421FACA29BF71A4006A6C9F /* UserViewController.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		B42B5F7629BD7943006F4CA5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +340,8 @@
 		B46CC88F2991FCE500746B9A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				B421FAC929BF7187006A6C9F /* User */,
+				B421FAC629BF700D006A6C9F /* MainTabBar */,
 				B4CD3E2D29B2F0EF003130AE /* Register */,
 				B4CD3E2329B246EF003130AE /* Login */,
 			);
@@ -691,6 +713,7 @@
 				B46CC8602991F76A00746B9A /* LoginViewController.swift in Sources */,
 				B4CD3E2029B1FE86003130AE /* PayBasketResult.swift in Sources */,
 				B4CD3E2C29B25AFA003130AE /* Extension+UIColor.swift in Sources */,
+				B421FACB29BF71A4006A6C9F /* UserViewController.swift in Sources */,
 				B4328F54299629DD007ECA57 /* LogoutResult.swift in Sources */,
 				B47E4F6E29974CA900EA7FF6 /* ChangeUserDataResult.swift in Sources */,
 				B4328F3E2995EFD9007ECA57 /* LoginResult.swift in Sources */,
@@ -717,6 +740,7 @@
 				B4CD3E1A29B19E26003130AE /* Basket.swift in Sources */,
 				B4CD3DFF29A7B6F5003130AE /* Review.swift in Sources */,
 				B46CC85C2991F76A00746B9A /* AppDelegate.swift in Sources */,
+				B421FAC829BF7052006A6C9F /* MainTabbarController.swift in Sources */,
 				B4D55F0129BADF9E0017882F /* PurpleRoundedButton.swift in Sources */,
 				B4CD3E2529B24717003130AE /* LoginRootView.swift in Sources */,
 				B46CC85E2991F76A00746B9A /* SceneDelegate.swift in Sources */,
