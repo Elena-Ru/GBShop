@@ -18,6 +18,7 @@ class MainTabBarController: UITabBarController {
 
     private func generateTabBar() {
         viewControllers = [
+            generateVC(ProductsListViewController(), "Products", UIImage(systemName: "house")),
             generateVC(UserViewController(), "User", UIImage(systemName: "person"))
         ].map{ UINavigationController(rootViewController: $0)}
     }

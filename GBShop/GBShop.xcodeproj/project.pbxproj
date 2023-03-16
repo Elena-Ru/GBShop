@@ -12,6 +12,12 @@
 		B421FAC829BF7052006A6C9F /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAC729BF7052006A6C9F /* MainTabbarController.swift */; };
 		B421FACB29BF71A4006A6C9F /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FACA29BF71A4006A6C9F /* UserViewController.swift */; };
 		B421FACD29BF79FA006A6C9F /* UserRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FACC29BF79FA006A6C9F /* UserRootView.swift */; };
+		B421FAD829C2CB2C006A6C9F /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAD729C2CB2C006A6C9F /* ProductCollectionViewCell.swift */; };
+		B421FADB29C2CBBB006A6C9F /* LabelDarkGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FADA29C2CBBB006A6C9F /* LabelDarkGreen.swift */; };
+		B421FADD29C2CBD9006A6C9F /* ProductsListRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FADC29C2CBD9006A6C9F /* ProductsListRootView.swift */; };
+		B421FADF29C2CC08006A6C9F /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FADE29C2CC08006A6C9F /* ProductsListViewController.swift */; };
+		B421FAE729C2D232006A6C9F /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAE629C2D232006A6C9F /* UserDefaultsService.swift */; };
+		B421FAE929C2D2F9006A6C9F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAE829C2D2F9006A6C9F /* UserService.swift */; };
 		B4328F3E2995EFD9007ECA57 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F3D2995EFD9007ECA57 /* LoginResult.swift */; };
 		B4328F402995F018007ECA57 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F3F2995F018007ECA57 /* User.swift */; };
 		B4328F432995FF44007ECA57 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F422995FF44007ECA57 /* AuthRequestFactory.swift */; };
@@ -89,6 +95,12 @@
 		B421FAC729BF7052006A6C9F /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		B421FACA29BF71A4006A6C9F /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		B421FACC29BF79FA006A6C9F /* UserRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRootView.swift; sourceTree = "<group>"; };
+		B421FAD729C2CB2C006A6C9F /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		B421FADA29C2CBBB006A6C9F /* LabelDarkGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelDarkGreen.swift; sourceTree = "<group>"; };
+		B421FADC29C2CBD9006A6C9F /* ProductsListRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListRootView.swift; sourceTree = "<group>"; };
+		B421FADE29C2CC08006A6C9F /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
+		B421FAE629C2D232006A6C9F /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		B421FAE829C2D2F9006A6C9F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		B4328F3D2995EFD9007ECA57 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		B4328F3F2995F018007ECA57 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B4328F422995FF44007ECA57 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
@@ -182,10 +194,71 @@
 		B421FAC929BF7187006A6C9F /* User */ = {
 			isa = PBXGroup;
 			children = (
-				B421FACA29BF71A4006A6C9F /* UserViewController.swift */,
-				B421FACC29BF79FA006A6C9F /* UserRootView.swift */,
+				B421FAE229C2CD27006A6C9F /* Controlller */,
+				B421FAE329C2CD37006A6C9F /* View */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		B421FAD929C2CB35006A6C9F /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				B421FAE129C2CD08006A6C9F /* View */,
+				B421FAE029C2CCF1006A6C9F /* Controller */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
+		B421FAE029C2CCF1006A6C9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B421FADE29C2CC08006A6C9F /* ProductsListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B421FAE129C2CD08006A6C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B421FAD729C2CB2C006A6C9F /* ProductCollectionViewCell.swift */,
+				B421FADC29C2CBD9006A6C9F /* ProductsListRootView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B421FAE229C2CD27006A6C9F /* Controlller */ = {
+			isa = PBXGroup;
+			children = (
+				B421FACA29BF71A4006A6C9F /* UserViewController.swift */,
+			);
+			path = Controlller;
+			sourceTree = "<group>";
+		};
+		B421FAE329C2CD37006A6C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B421FACC29BF79FA006A6C9F /* UserRootView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B421FAE429C2D0EF006A6C9F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B4CD3E2629B25406003130AE /* CustomTextField.swift */,
+				B421FADA29C2CBBB006A6C9F /* LabelDarkGreen.swift */,
+				B4D55F0029BADF9E0017882F /* PurpleRoundedButton.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B421FAE529C2D204006A6C9F /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				B421FAE629C2D232006A6C9F /* UserDefaultsService.swift */,
+				B421FAE829C2D2F9006A6C9F /* UserService.swift */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		B42B5F7629BD7943006F4CA5 /* Controller */ = {
@@ -216,8 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				B4CD3E2429B24717003130AE /* LoginRootView.swift */,
-				B4CD3E2629B25406003130AE /* CustomTextField.swift */,
-				B4D55F0029BADF9E0017882F /* PurpleRoundedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +388,7 @@
 		B46CC88C2991FC4600746B9A /* BusinessLogic */ = {
 			isa = PBXGroup;
 			children = (
+				B421FAE529C2D204006A6C9F /* UserDefaults */,
 				B4328F412995F22B007ECA57 /* Network */,
 			);
 			path = BusinessLogic;
@@ -343,10 +415,11 @@
 		B46CC88F2991FCE500746B9A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				B421FAC929BF7187006A6C9F /* User */,
-				B421FAC629BF700D006A6C9F /* MainTabBar */,
-				B4CD3E2D29B2F0EF003130AE /* Register */,
 				B4CD3E2329B246EF003130AE /* Login */,
+				B421FAC629BF700D006A6C9F /* MainTabBar */,
+				B421FAD929C2CB35006A6C9F /* ProductList */,
+				B4CD3E2D29B2F0EF003130AE /* Register */,
+				B421FAC929BF7187006A6C9F /* User */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -354,6 +427,7 @@
 		B46CC8902991FD4500746B9A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B421FAE429C2D0EF006A6C9F /* Helpers */,
 				B4CD3E2A29B254DD003130AE /* Extensions */,
 				B4328F48299601BE007ECA57 /* Network */,
 			);
@@ -719,7 +793,9 @@
 				B4CD3E2C29B25AFA003130AE /* Extension+UIColor.swift in Sources */,
 				B421FACB29BF71A4006A6C9F /* UserViewController.swift in Sources */,
 				B4328F54299629DD007ECA57 /* LogoutResult.swift in Sources */,
+				B421FADD29C2CBD9006A6C9F /* ProductsListRootView.swift in Sources */,
 				B47E4F6E29974CA900EA7FF6 /* ChangeUserDataResult.swift in Sources */,
+				B421FAE729C2D232006A6C9F /* UserDefaultsService.swift in Sources */,
 				B4328F3E2995EFD9007ECA57 /* LoginResult.swift in Sources */,
 				B4CD3E1829B19D4A003130AE /* RemoveFromBasketResult.swift in Sources */,
 				B4328F5229960628007ECA57 /* RequestFactory.swift in Sources */,
@@ -735,17 +811,21 @@
 				B4328F4C29960248007ECA57 /* ErrorParser.swift in Sources */,
 				B4CD3DFD29A7B69C003130AE /* GetListReviewResult.swift in Sources */,
 				B4328F452995FF95007ECA57 /* Auth.swift in Sources */,
+				B421FADF29C2CC08006A6C9F /* ProductsListViewController.swift in Sources */,
 				B4CD3E2F29B2F11F003130AE /* RegisterViewController.swift in Sources */,
 				B4328F50299604C6007ECA57 /* RequestRouter.swift in Sources */,
 				B4C9CEE6299D0DD700562E6A /* GoodsRequestFactory.swift in Sources */,
 				B47E4F702997588A00EA7FF6 /* UserData.swift in Sources */,
 				B4CD3E1629B19D10003130AE /* AddToBasketResult.swift in Sources */,
 				B4CD3E1E29B1BB2C003130AE /* BasketProduct.swift in Sources */,
+				B421FAE929C2D2F9006A6C9F /* UserService.swift in Sources */,
 				B4CD3E1A29B19E26003130AE /* Basket.swift in Sources */,
 				B4CD3DFF29A7B6F5003130AE /* Review.swift in Sources */,
+				B421FAD829C2CB2C006A6C9F /* ProductCollectionViewCell.swift in Sources */,
 				B46CC85C2991F76A00746B9A /* AppDelegate.swift in Sources */,
 				B421FAC829BF7052006A6C9F /* MainTabbarController.swift in Sources */,
 				B4D55F0129BADF9E0017882F /* PurpleRoundedButton.swift in Sources */,
+				B421FADB29C2CBBB006A6C9F /* LabelDarkGreen.swift in Sources */,
 				B4CD3E2529B24717003130AE /* LoginRootView.swift in Sources */,
 				B46CC85E2991F76A00746B9A /* SceneDelegate.swift in Sources */,
 				B4CD3DF629A5FF60003130AE /* Reviews.swift in Sources */,
