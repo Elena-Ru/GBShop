@@ -18,6 +18,9 @@
 		B421FADF29C2CC08006A6C9F /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FADE29C2CC08006A6C9F /* ProductsListViewController.swift */; };
 		B421FAE729C2D232006A6C9F /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAE629C2D232006A6C9F /* UserDefaultsService.swift */; };
 		B421FAE929C2D2F9006A6C9F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAE829C2D2F9006A6C9F /* UserService.swift */; };
+		B421FAF529C39B3C006A6C9F /* ReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAF429C39B3C006A6C9F /* ReviewTableViewCell.swift */; };
+		B421FAF729C39B73006A6C9F /* ProductDetailRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAF629C39B73006A6C9F /* ProductDetailRootView.swift */; };
+		B421FAFB29C39BB6006A6C9F /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B421FAFA29C39BB6006A6C9F /* ProductDetailViewController.swift */; };
 		B4328F3E2995EFD9007ECA57 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F3D2995EFD9007ECA57 /* LoginResult.swift */; };
 		B4328F402995F018007ECA57 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F3F2995F018007ECA57 /* User.swift */; };
 		B4328F432995FF44007ECA57 /* AuthRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4328F422995FF44007ECA57 /* AuthRequestFactory.swift */; };
@@ -101,6 +104,9 @@
 		B421FADE29C2CC08006A6C9F /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
 		B421FAE629C2D232006A6C9F /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		B421FAE829C2D2F9006A6C9F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		B421FAF429C39B3C006A6C9F /* ReviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableViewCell.swift; sourceTree = "<group>"; };
+		B421FAF629C39B73006A6C9F /* ProductDetailRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailRootView.swift; sourceTree = "<group>"; };
+		B421FAFA29C39BB6006A6C9F /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		B4328F3D2995EFD9007ECA57 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		B4328F3F2995F018007ECA57 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B4328F422995FF44007ECA57 /* AuthRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRequestFactory.swift; sourceTree = "<group>"; };
@@ -261,6 +267,32 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		B421FAF329C39B0A006A6C9F /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B421FAF929C39B9D006A6C9F /* Controller */,
+				B421FAF829C39B93006A6C9F /* View */,
+			);
+			path = ProductDetail;
+			sourceTree = "<group>";
+		};
+		B421FAF829C39B93006A6C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B421FAF429C39B3C006A6C9F /* ReviewTableViewCell.swift */,
+				B421FAF629C39B73006A6C9F /* ProductDetailRootView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B421FAF929C39B9D006A6C9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B421FAFA29C39BB6006A6C9F /* ProductDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		B42B5F7629BD7943006F4CA5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +447,7 @@
 		B46CC88F2991FCE500746B9A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				B421FAF329C39B0A006A6C9F /* ProductDetail */,
 				B4CD3E2329B246EF003130AE /* Login */,
 				B421FAC629BF700D006A6C9F /* MainTabBar */,
 				B421FAD929C2CB35006A6C9F /* ProductList */,
@@ -796,9 +829,11 @@
 				B421FADD29C2CBD9006A6C9F /* ProductsListRootView.swift in Sources */,
 				B47E4F6E29974CA900EA7FF6 /* ChangeUserDataResult.swift in Sources */,
 				B421FAE729C2D232006A6C9F /* UserDefaultsService.swift in Sources */,
+				B421FAF729C39B73006A6C9F /* ProductDetailRootView.swift in Sources */,
 				B4328F3E2995EFD9007ECA57 /* LoginResult.swift in Sources */,
 				B4CD3E1829B19D4A003130AE /* RemoveFromBasketResult.swift in Sources */,
 				B4328F5229960628007ECA57 /* RequestFactory.swift in Sources */,
+				B421FAFB29C39BB6006A6C9F /* ProductDetailViewController.swift in Sources */,
 				B4328F432995FF44007ECA57 /* AuthRequestFactory.swift in Sources */,
 				B4C9CEEC299D114600562E6A /* Products.swift in Sources */,
 				B4328F5A29964EF1007ECA57 /* RegistrationResult.swift in Sources */,
@@ -830,6 +865,7 @@
 				B46CC85E2991F76A00746B9A /* SceneDelegate.swift in Sources */,
 				B4CD3DF629A5FF60003130AE /* Reviews.swift in Sources */,
 				B4C9CEE8299D0F0900562E6A /* CatalogDataResult.swift in Sources */,
+				B421FAF529C39B3C006A6C9F /* ReviewTableViewCell.swift in Sources */,
 				B4328F47299600BA007ECA57 /* DataRequest.swift in Sources */,
 				B4CD3DFB29A7AA54003130AE /* AddReviewResult.swift in Sources */,
 			);
