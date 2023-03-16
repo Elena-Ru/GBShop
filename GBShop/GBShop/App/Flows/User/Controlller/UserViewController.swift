@@ -12,8 +12,8 @@ class UserViewController: UIViewController {
     private var rootView = UserRootView()
     let auth = RequestFactory().makeAuthRequestFactory()
     var gender: String = "m"
-    let userDefaults = UserDefaults.standard
-    
+    var userDefaults = UserDefaultsService.instance
+
     //MARK: Objc methods
     @objc func keyboardWasShown(notification: Notification) {
         let info = notification.userInfo! as NSDictionary
@@ -57,7 +57,7 @@ class UserViewController: UIViewController {
             switch response.result {
             case .success(let changeUserData):
                 print(changeUserData)
-                self.saveUserData(name: name, email: email, password: password, creditCard: creditCard, bio: bio, id: id, gender: self.gender)
+                self.userDefaults.save(name: name, email: email, password: password, creditCard: creditCard, bio: bio, id: id, gender: self.gender)
                 DispatchQueue.main.async {
                     self.successChangeData()
                 }
@@ -94,7 +94,7 @@ class UserViewController: UIViewController {
     }
     
     private func getGender() -> Int {
-        if userDefaults.string(forKey: "gender") == "m" {
+        if userDefaults.readString(key: "gender") == "m" {
             return 0
         } else {
             return 1
@@ -102,26 +102,14 @@ class UserViewController: UIViewController {
     }
     
     private func setRootViewSubviews() {
-        rootView.userId.text = "Your id:\(String(userDefaults.integer(forKey: "id")))"
-        rootView.bio.text = userDefaults.string(forKey: "bio")
+        rootView.userId.text = "Your id:\(String(userDefaults.readInt(key: "id")))"
+        rootView.bio.text = userDefaults.readString(key: "bio")
         rootView.genderSegment.selectedSegmentIndex  = getGender()
-        rootView.nameTextFieldView.text = userDefaults.string(forKey: "name")
-        rootView.emailTextFieldView.text = userDefaults.string(forKey: "email")
-        rootView.passwordTextFieldView.text = userDefaults.string(forKey: "password")
-        rootView.creditCardView.text = userDefaults.string(forKey: "creditCard")
+        rootView.nameTextFieldView.text = userDefaults.readString(key: "name")
+        rootView.emailTextFieldView.text = userDefaults.readString(key: "email")
+        rootView.passwordTextFieldView.text = userDefaults.readString(key: "password")
+        rootView.creditCardView.text = userDefaults.readString(key: "creditCard")
     }
-    
-    private func saveUserData(name: String, email: String, password: String, creditCard: String, bio: String, id: Int, gender: String) {
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(name, forKey: "name")
-        userDefaults.set(password, forKey: "password")
-        userDefaults.set(email, forKey: "email")
-        userDefaults.set(creditCard, forKey: "creditCard")
-        userDefaults.set(bio, forKey: "bio")
-        userDefaults.set(id, forKey: "id")
-        userDefaults.set(gender, forKey: "gender")
-    }
-    
     
     override func loadView() {
         super.loadView()

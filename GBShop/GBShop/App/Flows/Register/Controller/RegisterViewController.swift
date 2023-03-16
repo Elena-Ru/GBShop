@@ -13,6 +13,7 @@ class RegisterViewController: UIViewController {
     private var rootView = RegisterRootView()
     let auth = RequestFactory().makeAuthRequestFactory()
     var gender: String = "m"
+    var userDefaults = UserDefaultsService.instance
     
     //MARK: Objc methods
     @objc private func dismissSelf() {
@@ -52,7 +53,7 @@ class RegisterViewController: UIViewController {
         }
         let id = parseId(idString: idString)
         
-        saveUserData(name: name, email: email, password: password, creditCard: creditCard, bio: bio, id: id, gender: gender)
+        userDefaults.save(name: name, email: email, password: password, creditCard: creditCard, bio: bio, id: id, gender: gender)
         
         auth.register(idUser: id, username: name, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio) { response in
             switch response.result {
@@ -88,18 +89,7 @@ class RegisterViewController: UIViewController {
         Int(idString.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) ?? 0
     }
     
-    private func saveUserData(name: String, email: String, password: String, creditCard: String, bio: String, id: Int, gender: String) {
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(name, forKey: "name")
-        userDefaults.set(password, forKey: "password")
-        userDefaults.set(email, forKey: "email")
-        userDefaults.set(creditCard, forKey: "creditCard")
-        userDefaults.set(bio, forKey: "bio")
-        userDefaults.set(id, forKey: "id")
-        userDefaults.set(gender, forKey: "gender")
-    }
-    
-    private func successSignUp(){
+    private func successSignUp() {
         let alert = UIAlertController(title: "It's done!", message: "You have successfully signed up", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
             alert.dismiss(animated: true, completion: nil)
