@@ -28,8 +28,6 @@ class ProductsListViewController: UIViewController {
             switch response.result {
             case .success(let catalog):
                 DispatchQueue.main.async {
-                    print(catalog)
-                    print(catalog.count)
                     self.products = catalog
                     self.rootView.collectionView.reloadData()
                 }
@@ -55,4 +53,12 @@ extension ProductsListViewController: UICollectionViewDelegate, UICollectionView
         cell.layer.borderWidth = 1
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let newController = ProductDetailViewController()
+        newController.modalPresentationStyle = .currentContext
+        newController.index = products[indexPath.item].id
+        self.navigationController?.pushViewController(newController, animated: true)
+    }
+    
 }
