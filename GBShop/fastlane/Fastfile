@@ -33,5 +33,9 @@ workspace: "GBShop.xcworkspace"
 cocoapods(
 use_bundle_exec: false
 )
+
+# run tests
+run_tests
+
   end
 end
