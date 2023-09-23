@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import LocalAuthentication
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -18,9 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard  let windowScene = (scene as? UIWindowScene) else {return}
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = LoginViewController()
         window.makeKeyAndVisible()
         self.window = window
+        
+        authenticateWithFaceID()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,6 +54,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+
+  func authenticateWithFaceID() {
+      let context = LAContext()
+      var error: NSError?
+
+      if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+          let reason = "Authenticate to enter the app."
+
+          context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+              DispatchQueue.main.async {
+                  if success {
+                      self.window?.rootViewController = MainTabBarController()
+                  } else {
+                      self.window?.rootViewController = LoginViewController()
+                  }
+              }
+          }
+      } else {
+          DispatchQueue.main.async {
+              self.window?.rootViewController = LoginViewController()
+          }
+      }
+  }
 
 }
 
